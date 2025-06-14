@@ -1,0 +1,41 @@
+
+.section-title {
+    color: aquamarine;
+    text-align: center;
+    font-size: 2rem;
+    margin-top: 40px;
+    margin-bottom: 20px;
+  }
+  
+  .classes-section {
+    padding: 20px;
+    background-color: #0a0a0a;
+  }
+  
+  .class-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .class-card {
+    background-color: #1b1b1b;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    transition: transform 0.3s ease;
+  }
+  
+  .class-card:hover {
+    transform: scale(1.03);
+  }
+  
+  .class-card h3 {
+    color: #64d62b;
+    margin-bottom: 10px;
+  }
+  
+  

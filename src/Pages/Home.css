@@ -1,0 +1,103 @@
+/* Optional global font */
+* {
+    font-family: 'Roboto Condensed', sans-serif;
+    box-sizing: border-box;
+  }
+  
+  /* Full section background */
+  .hero {
+    display: flex;
+    justify-content: flex-start;  /* Align to the left */
+    align-items: center;          /* Vertically center */
+    height: 800px;
+    width: 100%;
+    padding-left: 40px;           /* Space from left edge */
+    background-color: rgb(0, 0, 0);
+    color: aquamarine;
+  }
+  
+  /* The main card */
+  .hero-wrapper {
+    background-color: black;
+    position:sticky;
+    margin-top: 150px;
+    margin-left: 40px;
+    width: 700px;
+    height:400px;
+    display: grid;
+    grid-template-rows: 50px 1fr 50px;
+    padding: 10px;
+    gap: 10px;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease-in-out;
+  }
+  
+  /* Topbar */
+  .topbar {
+    background-color: rgba(20, 19, 19, 0.868);
+    font-weight: 600;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-left: 10px;
+    color: white;
+    border-radius: 30px;
+    width: 60%;
+  }
+  
+  /* Hookline - center content, allow it to grow on hover */
+  .hookline {
+    overflow: hidden;
+    background-color: black;
+    border-radius: 8px;
+    padding: 10px;
+    transition: transform 0.5s ease, font-size 0.5s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: white;
+  }
+  
+  .hookline:hover {
+    transform: scale(1.02);
+  }
+  
+  .hookline h1 {
+    font-size: 4rem;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  
+  .hookline h2 {
+    font-size:1rem;
+    font-weight: 400;
+    color: white;
+  }
+  
+  /* Button row */
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+    width: 50%;
+  }
+  
+  /* Button styling */
+  .buttons button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    background-color:#64d62b; 
+    color: white;
+    border-radius: 40px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .buttons button:hover {
+    background-color: #64d62b; 
+  }
+  

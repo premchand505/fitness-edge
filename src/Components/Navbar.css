@@ -1,0 +1,133 @@
+.navbar {
+    top:10px;
+    margin: 0 auto;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    background-color: rgb(83, 81, 81);
+    position: fixed;
+    height: 50px;
+    width: 40%;
+    z-index: 1000;
+    border-radius: 40px;
+    transition: padding 0.4s ease, background-color 0.4s ease;
+  }
+  
+  .navbar-shrink {
+    padding: 10px ;
+    background-color: rgb(83, 81, 81);
+  }
+  
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-shrink: 0;
+  }
+  
+  .brand {
+    font-size: 1.5rem;
+    transition: font-size 0.3s ease;
+    color: aliceblue;
+  }
+  
+  .navbar-shrink .brand {
+    font-size: 1.2rem;
+  }
+  
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-left: auto;
+  }
+  
+  .hamburger div {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 4px 0;
+    transition: 0.4s;
+  }
+  
+  .nav-items {
+    display: flex;
+  }
+  
+  .nav-list {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+    align-items: center;
+  }
+  
+  .nav-list a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+  }
+  
+  .join-btn {
+    background-color: #64d62b;
+    color: white;
+    padding: 6px 14px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  @media (max-width: 768px) {
+    .navbar {
+      flex-direction: row;
+      justify-content: space-between;
+      padding: 10px 20px;
+    }
+  
+    .logo {
+      flex-shrink: 0;
+    }
+  
+    .hamburger {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: flex-end;
+      margin-left: auto;
+      z-index: 1001;
+    }
+  
+    .nav-items {
+      position: fixed;
+      top: 0;
+      right: -100%;
+      width: 70%;
+      height: 100%;
+      background-color: rgb(83, 81, 81);
+      display: flex;
+      flex-direction: column;
+      padding-top: 80px;
+      transition: right 0.3s ease-in-out;
+      z-index: 999;
+    }
+  
+    .nav-items.open {
+      right: 0;
+    }
+  
+    .nav-list {
+      flex-direction: column;
+      width: 100%;
+      gap: 20px;
+      padding: 20px;
+    }
+  
+    .nav-list li {
+      text-align: left;
+      padding-left: 20px;
+    }
+  }
+  
