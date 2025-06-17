@@ -1,17 +1,13 @@
 import React from 'react'
-import './Section.css';
+import './Facilities.css';
 const Section = () => {
   return (
     <section className="classes-section">
-        <h2 className="section-title">Our Classes</h2>
+        <h2 className="section-title">Our Facilities</h2>
         <div className="class-grid">
           <div className="class-card">
             <h3>Strength Training</h3>
             <p>Build muscle and improve overall strength with guided workouts.</p>
-          </div>
-          <div className="class-card">
-            <h3>Yoga & Flexibility</h3>
-            <p>Enhance flexibility and reduce stress through guided yoga sessions.</p>
           </div>
           <div className="class-card">
             <h3>Cardio Blast</h3>

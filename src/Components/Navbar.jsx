@@ -1,37 +1,68 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
+import { FiMenu, FiX } from 'react-icons/fi';
+import { FaDumbbell } from 'react-icons/fa';
 import './Navbar.css';
 
 const Navbar = () => {
-  const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const menuButtonRef = useRef(null);
+  const navRef = useRef(null);
 
+  const toggleMenu = () => {
+    setMenuOpen((prev) => {
+      if (prev) {
+        // When closing, focus back to menu button
+        menuButtonRef.current?.focus();
+      }
+      return !prev;
+    });
+    console.log('Menu toggled:', !menuOpen); // Debug log (remove in production)
+  };
+
+  // Close sidebar on outside click (optional, improves UX)
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 50);
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    const handleOutsideClick = (event) => {
+      if (menuOpen && navRef.current && !navRef.current.contains(event.target) && !menuButtonRef.current.contains(event.target)) {
+        toggleMenu();
+      }
+    };
+    document.addEventListener('mousedown', handleOutsideClick);
+    return () => document.removeEventListener('mousedown', handleOutsideClick);
+  }, [menuOpen]);
 
   return (
-    <nav className={`navbar ${scrolled ? 'navbar-shrink' : ''}`}>
-      <div className="logo">
-
-        <h1 className="brand">fitness-edge</h1>
-        </div>
-              <div className="hamburger" onClick={() => setMenuOpen(!menuOpen)}>
-    
-        <div></div>
-        <div></div>
-        <div></div>
+    <div className="navbar-container">
+      <div className="left-container">
+        <FaDumbbell className="dumbell-icon" aria-hidden="true" />
+        <h2 className="brand-name">Fitness Edge</h2>
       </div>
-      <div className={`nav-items ${menuOpen ? 'open' : ''}`}>
-        <ul className="nav-list">
-          <li><a href="#facilities">Facilities</a></li>
-          <li><a href="#pricing">Pricing</a></li>
-          <li><a href="#testimonials">Testimonials</a></li>
-          <li><button className="join-btn">Join Now</button></li>
-        </ul>
+      <div className="right-container">
+        <nav ref={navRef} className={`nav-links ${menuOpen ? 'active' : ''}`}>
+          <a className="link-item" href="#home" onClick={toggleMenu}>
+            Home
+          </a>
+          <a className="link-item" href="#facilities" onClick={toggleMenu}>
+            Facilities
+          </a>
+          <a className="link-item" href="#pricing" onClick={toggleMenu}>
+            Pricing
+          </a>
+          <a className="link-item" href="#nutrition" onClick={toggleMenu}>
+            Nutrition
+          </a>
+        </nav>
+        <button
+          ref={menuButtonRef}
+          className="menu-button"
+          onClick={toggleMenu}
+          aria-label={menuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+          aria-expanded={menuOpen}
+          aria-controls="nav-links"
+        >
+          {menuOpen ? <FiX /> : <FiMenu />}
+        </button>
       </div>
-    </nav>
+    </div>
   );
 };
 

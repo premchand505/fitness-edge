@@ -1,103 +1,66 @@
-/* Optional global font */
-* {
-    font-family: 'Roboto Condensed', sans-serif;
-    box-sizing: border-box;
-  }
-  
-  /* Full section background */
-  .hero {
-    display: flex;
-    justify-content: flex-start;  /* Align to the left */
-    align-items: center;          /* Vertically center */
-    height: 800px;
+/* src/Components/Home.css */
+.home-container {
     width: 100%;
-    padding-left: 40px;           /* Space from left edge */
-    background-color: rgb(0, 0, 0);
-    color: aquamarine;
-  }
-  
-  /* The main card */
-  .hero-wrapper {
+    display: flex;
+    min-height: 100vh;
     background-color: black;
-    position:sticky;
-    margin-top: 150px;
-    margin-left: 40px;
-    width: 700px;
-    height:400px;
-    display: grid;
-    grid-template-rows: 50px 1fr 50px;
-    padding: 10px;
-    gap: 10px;
-    border-radius: 16px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    transition: all 0.4s ease-in-out;
-  }
-  
-  /* Topbar */
-  .topbar {
-    background-color: rgba(20, 19, 19, 0.868);
-    font-weight: 600;
-    font-size: 1.1rem;
+}
+
+.home-content {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    padding-left: 10px;
-    color: white;
-    border-radius: 30px;
-    width: 60%;
-  }
-  
-  /* Hookline - center content, allow it to grow on hover */
-  .hookline {
-    overflow: hidden;
-    background-color: black;
-    border-radius: 8px;
-    padding: 10px;
-    transition: transform 0.5s ease, font-size 0.5s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    color: white;
-  }
-  
-  .hookline:hover {
-    transform: scale(1.02);
-  }
-  
-  .hookline h1 {
-    font-size: 4rem;
-    margin-bottom: 6px;
-    font-weight: 600;
-  }
-  
-  .hookline h2 {
-    font-size:1rem;
-    font-weight: 400;
-    color: white;
-  }
-  
-  /* Button row */
-  .buttons {
-    display: flex;
-    justify-content: space-between;
-    gap: 40px;
     width: 50%;
-  }
-  
-  /* Button styling */
-  .buttons button {
-    flex: 1;
-    padding: 10px;
-    border: none;
-    background-color:#64d62b; 
+    flex-direction: column;
+    margin-left: 50px;
+}
+
+.barhookline {
+    width: 40%;
+    font-size: 1.7rem;
+    background-color: rgb(57, 57, 57);
+    margin-left: 25px;
+    border-radius: 25px;
+    text-align: center;
+    font-weight: 300; /* Increased for readability */
     color: white;
-    border-radius: 40px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-  }
-  
-  .buttons button:hover {
-    background-color: #64d62b; 
-  }
-  
+    box-shadow: 2px 2px 10px 1px rgba(210, 210, 210, 0.5);
+   font-style: italic;
+}
+
+.hookline {
+    font-size: 4rem;
+    margin-top: 150px;
+    color: white;
+    animation: textanimation 1s ease-in-out 0.2s forwards; /* Fixed delay */
+}
+
+.hookline.visible {
+    animation: textanimation 1s ease-in-out 2s forwards; /* For scroll trigger */
+}
+
+@keyframes textanimation {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-content {
+        width: 90%;
+        margin-left: 20px;
+    }
+    .barhookline {
+        width: 80%;
+        font-size: 1.4rem;
+        margin-left: 0;
+        padding: 8px;
+    }
+    .hookline {
+        font-size: 2.5rem;
+        margin-top: 100px;
+    }
+}

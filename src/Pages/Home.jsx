@@ -1,24 +1,17 @@
 import React from 'react';
 import './Home.css';
+import Slideshow from '../Pages/Slideshow';
 
 const Home = () => {
   return (
-    <div className="hero-wrapper">
-      <div className="topbar">
-        Premium Fitness Experience
-      </div>
-
-      <div className="hookline">
-        <h1>Transform your body, achieve your goals</h1>
-        <h2>
-          Experience state-of-the-art fitness equipment, expert personal training,
-          and a supportive community. Start your fitness journey today.
-        </h2>
-      </div>
-
-      <div className="buttons">
-        <button>Join Now</button>
-        <button>View Classes</button>
+    <div className="home-container">
+      <div className="home-content">
+        
+        <h1 className='hookline'><h3 className='barhookline'>EXperience premium fitness</h3>
+        Welcome to Fitness Edge<br></br>
+        Unleash Your Inner Beast at Fitness Edge
+        </h1>
+        <h3>Step into Fitness Edge - where strength meets transformation. Whether you're just starting out or chasing elite performance, our expert trainers, modern equipment, and motivating environment will push you to crush every goa</h3>
       </div>
     </div>
   );

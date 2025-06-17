@@ -1,133 +1,162 @@
-.navbar {
-    top:10px;
-    margin: 0 auto;
-    left: 0;
-    right: 0;
+.navbar-container {
     display: flex;
     justify-content: space-between;
+    background-color: rgb(48, 48, 48);
+    width: 100%;
+    height: 10vh;
     align-items: center;
-    padding: 20px;
-    background-color: rgb(83, 81, 81);
-    position: fixed;
-    height: 50px;
-    width: 40%;
-    z-index: 1000;
-    border-radius: 40px;
-    transition: padding 0.4s ease, background-color 0.4s ease;
+    top: 0;
+    left: 0;
+    right: 0;
+    position: sticky;
+    z-index: 1001; /* Above content */
   }
   
-  .navbar-shrink {
-    padding: 10px ;
-    background-color: rgb(83, 81, 81);
+  .brand-name {
+    color: azure;
+    font-size: 2rem;
   }
   
-  .logo {
+  .dumbell-icon {
+
     display: flex;
-    align-items: center;
-    gap: 10px;
-    flex-shrink: 0;
+    font-size: 2rem;
+    margin-right: 10px;
+    color: rgb(78, 202, 78);
   }
   
-  .brand {
-    font-size: 1.5rem;
-    transition: font-size 0.3s ease;
-    color: aliceblue;
-  }
-  
-  .navbar-shrink .brand {
-    font-size: 1.2rem;
-  }
-  
-  .hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    margin-left: auto;
-  }
-  
-  .hamburger div {
-    width: 25px;
-    height: 3px;
-    background-color: white;
-    margin: 4px 0;
-    transition: 0.4s;
-  }
-  
-  .nav-items {
+  .left-container {
+    margin-left: 60px;
     display: flex;
-  }
-  
-  .nav-list {
-    display: flex;
-    list-style: none;
+    justify-content: space-between;
     gap: 20px;
     align-items: center;
   }
   
-  .nav-list a {
-    text-decoration: none;
-    color: white;
-    font-weight: 500;
+  .right-container {
+    width: 40%;
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    margin-right: 40px;
   }
   
-  .join-btn {
-    background-color: #64d62b;
-    color: white;
-    padding: 6px 14px;
-    border: none;
+  .nav-links {
+    display: none; /* Hide on mobile by default */
+    background-color: rgb(48, 48, 48); /* Matches navbar-container */
+    position: fixed;
+    top: 0;
+    right: 0; /* Slide from right */
+    width: 250px;
+    height: 100vh;
+    flex-direction: column; /* Vertical for sidebar */
+    padding: 20px;
+    transform: translateX(100%); /* Off-screen */
+    transition: transform 0.3s ease-in-out;
+    box-shadow: -2px 0 10px rgba(210, 210, 210, 0.5); /* Matches Home.css */
+    z-index: 1000;
+    flex-shrink: 0;
     border-radius: 20px;
-    font-weight: bold;
+  }
+  
+  .nav-links.active {
+    display: flex; /* Show sidebar */
+    transform: translateX(0); /* Slide in */
+  }
+  
+  .link-item {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    width: 15%;
+    color: rgb(0, 0, 0);
+    font-size: 1.2rem;
+    background-color: rgb(96, 248, 40);
+    border-radius: 10px;
+  }
+  
+  .link-item:hover {
+    background-color: rgb(41, 241, 0);
+    padding-top: 1px;
+   
+  }
+  
+  .menu-button {
+    display: block; 
+    background: none;
+    border: none;
+    color: rgb(78, 202, 78); 
+    font-size: 1.8rem;
     cursor: pointer;
+    z-index: 1002; 
   }
   
-  @media (max-width: 768px) {
-    .navbar {
-      flex-direction: row;
-      justify-content: space-between;
-      padding: 10px 20px;
-    }
-  
-    .logo {
-      flex-shrink: 0;
-    }
-  
-    .hamburger {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: flex-end;
-      margin-left: auto;
-      z-index: 1001;
-    }
-  
-    .nav-items {
-      position: fixed;
-      top: 0;
-      right: -100%;
-      width: 70%;
-      height: 100%;
-      background-color: rgb(83, 81, 81);
-      display: flex;
-      flex-direction: column;
-      padding-top: 80px;
-      transition: right 0.3s ease-in-out;
-      z-index: 999;
-    }
-  
-    .nav-items.open {
-      right: 0;
-    }
-  
-    .nav-list {
-      flex-direction: column;
+  /* Desktop styles */
+  @media (min-width: 768px) {
+    .nav-links {
+      display: flex; 
+      position: static;
       width: 100%;
-      gap: 20px;
-      padding: 20px;
+      height: auto;
+      flex-direction: row;
+      justify-content: space-between; 
+      background-color: rgb(48, 48, 48);
+      padding: 0;
+      transform: none;
+      box-shadow: none;
+      border-radius: 20px;
     }
   
-    .nav-list li {
-      text-align: left;
-      padding-left: 20px;
+    .nav-links.active {
+      display: flex;
+    }
+  
+    .link-item {
+      width: 15%; 
+     
+    }
+  
+    .menu-button {
+      display: none; 
     }
   }
   
+
+  @media (max-width: 480px) {
+    .navbar-container {
+     display: flex;
+    }
+  
+    .brand-name {
+      font-size: 1.5rem;
+    }
+  
+    .dumbell-icon {
+      font-size: 1.6rem;
+      margin-right: 8px;
+    }
+    .menu-button{
+        margin-left: auto;
+        margin-right: 15px;
+    }
+  
+    .right-container {
+      width: 30%;
+      
+    }
+  
+    .nav-links {
+padding-top: 50px;
+      width: 47%;
+      
+      
+
+    }
+  
+    .link-item {
+      width: 80%; 
+      font-size: 1rem;
+      padding: 10px;
+      margin-top: 10px;
+    }
+  }

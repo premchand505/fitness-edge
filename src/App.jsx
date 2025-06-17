@@ -1,19 +1,29 @@
-import React, { useEffect, useState } from 'react';
-import './App.css';
+// App.jsx
+import React from 'react';
 
 
-import Navbar from './Components/Navbar';
+
 import Home from './Pages/Home';
-import Section from './Pages/Section';
+import Facilities from './Pages/Facilities';
+import Pricing from './Pages/Pricing';
+import Nutrition from './Pages/Nutrition';
+
+import './App.css';
+import Navbar from './Components/Navbar';
+import Footer from './Components/Footer';
 
 function App() {
   return (
-    <div className="app-container">
-      <Navbar />
-      <Home />
-      <Section/>
-      <Section/>
-    </div>
+   
+      <div className="app-container">
+       <Navbar/>
+       <Home/>
+       <Facilities/>
+       <Pricing/>
+       <Nutrition/>
+       <Footer/>
+      </div>
+  
   );
 }
 
