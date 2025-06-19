@@ -2,15 +2,15 @@
 .home-container {
     width: 100%;
     display: flex;
-    min-height: 100vh;
+    min-height: 80vh;
     background-color: black;
 }
 
 .home-content {
     display: flex;
-    width: 50%;
+    width: 60%;
     flex-direction: column;
-    margin-left: 50px;
+    margin-left: 100px;
 }
 
 .barhookline {
@@ -23,30 +23,18 @@
     font-weight: 300; /* Increased for readability */
     color: white;
     box-shadow: 2px 2px 10px 1px rgba(210, 210, 210, 0.5);
-   font-style: italic;
 }
 
 .hookline {
     font-size: 4rem;
     margin-top: 150px;
     color: white;
-    animation: textanimation 1s ease-in-out 0.2s forwards; /* Fixed delay */
 }
+   
 
-.hookline.visible {
-    animation: textanimation 1s ease-in-out 2s forwards; /* For scroll trigger */
-}
 
-@keyframes textanimation {
-    0% {
-        transform: translateX(-100px);
-        opacity: 0;
-    }
-    100% {
-        transform: translateX(0);
-        opacity: 1;
-    }
-}
+
+
 
 @media (max-width: 768px) {
     .home-content {
@@ -63,4 +51,33 @@
         font-size: 2.5rem;
         margin-top: 100px;
     }
+}
+
+
+@keyframes typing {
+    0% {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes blink-cursor {
+    0%, 100% { 
+        border-color: #0ff; 
+        box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+    }
+    50% { 
+        border-color: transparent; 
+        box-shadow: none;
+    }
+}
+
+@keyframes color-flash {
+    0% { color: #fff; text-shadow: 0 0 10px #0ff, 0 0 20px #0ff; }
+    50% { color: #ff0; text-shadow: 0 0 15px #ff0, 0 0 25px #ff0; }
+    100% { color: #f0f; text-shadow: 0 0 15px #f0f, 0 0 25px #f0f; }
 }

@@ -1,9 +1,10 @@
 import React from 'react';
 import './Home.css';
-import Slideshow from '../Pages/Slideshow';
+import Strap from '../Components/Strap';
 
 const Home = () => {
   return (
+    <>
     <div className="home-container">
       <div className="home-content">
         
@@ -14,6 +15,8 @@ const Home = () => {
         <h3>Step into Fitness Edge - where strength meets transformation. Whether you're just starting out or chasing elite performance, our expert trainers, modern equipment, and motivating environment will push you to crush every goa</h3>
       </div>
     </div>
+    <div> <Strap/></div>
+    </>
   );
 };
 

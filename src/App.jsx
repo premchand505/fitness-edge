@@ -18,8 +18,8 @@ function App() {
       <div className="app-container">
        <Navbar/>
        <Home/>
-       <Facilities/>
        <Pricing/>
+       <Facilities/>
        <Nutrition/>
        <Footer/>
       </div>
