@@ -2,7 +2,7 @@ import React from 'react'
 import './Facilities.css';
 const Section = () => {
   return (
-    <section className="classes-section">
+    <section id='facilities' className="classes-section">
         <h2 className="section-title">Our Facilities</h2>
         <div className="class-grid">
           <div className="class-card">
@@ -22,4 +22,4 @@ const Section = () => {
   )
 }
 
-export default Section
+export default Section;

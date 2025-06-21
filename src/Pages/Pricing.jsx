@@ -31,7 +31,7 @@ const plans = [
 
 const PricingCard = () => {
   return (
-    <div className="pricing-container">
+    <div id='pricing' className="pricing-container">
       {plans.map((plan, index) => (
         <div key={index} className="pricing-card">
           <h3 className="plan-title">{plan.duration} Plan</h3>

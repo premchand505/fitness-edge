@@ -11,15 +11,20 @@ const Navbar = () => {
   const toggleMenu = () => {
     setMenuOpen((prev) => {
       if (prev) {
-        // When closing, focus back to menu button
         menuButtonRef.current?.focus();
       }
       return !prev;
     });
-    console.log('Menu toggled:', !menuOpen); // Debug log (remove in production)
   };
 
-  // Close sidebar on outside click (optional, improves UX)
+  const handleNavClick = (sectionId) => {
+    const section = document.getElementById(sectionId);
+    if (section) {
+      section.scrollIntoView({ behavior: 'smooth' });
+      toggleMenu();
+    }
+  };
+
   useEffect(() => {
     const handleOutsideClick = (event) => {
       if (menuOpen && navRef.current && !navRef.current.contains(event.target) && !menuButtonRef.current.contains(event.target)) {
@@ -37,17 +42,17 @@ const Navbar = () => {
         <h2 className="brand-name">Fitness Edge</h2>
       </div>
       <div className="right-container">
-        <nav ref={navRef} className={`nav-links ${menuOpen ? 'active' : ''}`}>
-          <a className="link-item" href="#home" onClick={toggleMenu}>
+        <nav ref={navRef} className={`nav-links ${menuOpen ? 'active' : ''}`} id="nav-links">
+          <a className="link-item" href="#home" onClick={() => handleNavClick('home')}>
             Home
           </a>
-          <a className="link-item" href="#facilities" onClick={toggleMenu}>
+          <a className="link-item" href="#facilities" onClick={() => handleNavClick('facilities')}>
             Facilities
           </a>
-          <a className="link-item" href="#pricing" onClick={toggleMenu}>
+          <a className="link-item" href="#pricing" onClick={() => handleNavClick('pricing')}>
             Pricing
           </a>
-          <a className="link-item" href="#nutrition" onClick={toggleMenu}>
+          <a className="link-item" href="#nutrition" onClick={() => handleNavClick('nutrition')}>
             Nutrition
           </a>
         </nav>

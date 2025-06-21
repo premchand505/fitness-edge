@@ -22,7 +22,7 @@ const plans = [
 
 const NutritionCard = () => {
   return (
-    <div className="nutrition-container">
+    <div id='nutrition' className="nutrition-container">
       {plans.map((plan, index) => (
         <div key={index} className="nutrition-card">
           <h3 className="plan-title">{plan.duration} Plan</h3>
